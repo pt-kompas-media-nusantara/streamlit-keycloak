@@ -2,6 +2,20 @@
 **Keycloak user authentication and single sign-on inside your Streamlit app**
 
 ## Installation
+
+### Install from GitHub Release
+Download the latest wheel file from the [releases page](https://github.com/pt-kompas-media-nusantara/streamlit-keycloak/releases) and install it:
+
+```bash
+pip install https://github.com/pt-kompas-media-nusantara/streamlit-keycloak/releases/download/v1.1.1/streamlit_keycloak-1.1.1-py3-none-any.whl
+```
+
+### Install directly from GitHub
+```bash
+pip install git+https://github.com/pt-kompas-media-nusantara/streamlit-keycloak.git
+```
+
+### Install from PyPI (original package)
 `pip install streamlit-keycloak`
 
 ## Usage

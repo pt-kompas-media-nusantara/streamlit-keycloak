@@ -13,11 +13,11 @@ on:
     types: [published]
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: node20-cloud
     
     steps:
       - uses: actions/checkout@v3
@@ -41,7 +41,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: node20-cloud
 
     steps:
     - uses: actions/checkout@v3
@@ -65,8 +65,11 @@ jobs:
     - name: Build package
       run: python setup.py sdist bdist_wheel
     
-    - name: Publish package
-      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+    - name: Upload Release Assets
+      uses: softprops/action-gh-release@v1
       with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        files: |
+          dist/*.whl
+          dist/*.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
