@@ -34,7 +34,7 @@ jobs:
           npm run build --prefix streamlit_keycloak/frontend
           
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v4
         with:
           name: frontend_build
           path: streamlit_keycloak/frontend/public/build        
